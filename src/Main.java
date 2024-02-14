@@ -9,10 +9,20 @@ public class Main {
         int lines = sc.nextInt();
         System.out.print("Enter a number of columns: ");
         int columns = sc.nextInt();
+        System.out.println("Enter values: ");
         int[][] matrix = new int[lines][columns];
         for(int il = 0; il < lines; il++){
             for(int ic = 0; ic < columns; ic++){
                 matrix[il][ic] = sc.nextInt();
+            }
+        }
+        System.out.print("Enter a number to check for repeats in the array: ");
+        int repeatNumber = sc.nextInt();
+        for(int il = 0; il < lines; il++){
+            for(int ic = 0; ic < columns; ic++){
+                if(matrix[il][ic] == repeatNumber){
+                    System.out.println("Position: line " + il + ", column " + ic);
+                }
             }
         }
         sc.close();
