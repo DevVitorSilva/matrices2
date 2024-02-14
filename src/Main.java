@@ -18,12 +18,41 @@ public class Main {
         }
         System.out.print("Enter a number to check for repeats in the array: ");
         int repeatNumber = sc.nextInt();
-        for(int il = 0; il < lines; il++){
-            for(int ic = 0; ic < columns; ic++){
-                if(matrix[il][ic] == repeatNumber){
+        Integer right = null;
+        Integer left = null;
+        Integer down = null;
+        for (int il = 0; il < lines; il++) {
+            for (int ic = 0; ic < columns; ic++) {
+                if (matrix[il][ic] == repeatNumber) {
+                    try {
+                        right = matrix[il][ic + 1];
+                    } catch (Exception e) {
+                        right = null;
+                    }
+                    try {
+                        left = matrix[il][ic - 1];
+                    } catch (Exception e) {
+                        left = null;
+                    }
+                    try {
+                        down = matrix[il + 1][ic];
+                    } catch (Exception e) {
+                        down = null;
+                    }
                     System.out.println("Position: line " + il + ", column " + ic);
                 }
             }
+        }
+        if(left != null){
+            System.out.println("Left: " + left);
+        }
+
+        if (right != null) {
+            System.out.println("Right: " + right);
+        }
+
+        if(down != null){
+            System.out.println("Down: " + down);
         }
         sc.close();
     }
